@@ -1,1 +1,6 @@
-g++ -Wall -O2
+new filename
+
+g++ filename -Wall -O2
+
+exec
+
