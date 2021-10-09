@@ -32,7 +32,7 @@ if [ $TOTAL_ADDED_FILES != 0 ] ; then
 	git commit -m $COMMIT_MESSAGE
 	git pull --rebase
 	git push origin $BRANCH
-	cp -r $PWD $TEMP_DIRECTORY
+	cp -r $PWD/ $TEMP_DIRECTORY
 	exit 0
 else
 	echo "Nothing to commit"
