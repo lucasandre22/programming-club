@@ -5,6 +5,8 @@ COMMIT_MESSAGE="Add"
 MAX_FILES=5
 BRANCH="master"
 
+#TODO: modified files, can do with md5
+
 if [ ! -d "${TEMP_DIRECTORY}" ] ; then
 	echo "Creating directory ${TEMP_DIRECTORY}"
 	cp -r $PWD $TEMP_DIRECTORY
@@ -16,7 +18,7 @@ TOTAL_ADDED_FILES=0
 
 for file in $FILES_LIST
 do
-	if ! ls $TEMP_DIRECTORY | grep -q $file ; then
+	if ! ls $TEMP_DIRECTORY | grep -q $file ; then #TODO: != gitignore files
 		((TOTAL_ADDED_FILES=TOTAL_ADDED_FILES+1))
 		COMMIT_MESSAGE+=" $file"
 	fi
