@@ -3,7 +3,7 @@
 using namespace std;
 
 int rest(int i, int j) {
-    if(j != 0 && j != i)
+    if(j > 0)
         return rest(j, i % j);
     return i;
 }
@@ -16,14 +16,9 @@ int main(void) {
         if(b > c) swap(b, c);
 
         printf("tripla");
-        if(pow(a,2) == (pow(b,2) + pow(c,2)) || 
-        pow(b,2) == (pow(a,2) + pow(c,2)) || 
-        pow(c,2) == (pow(b,2) + pow(a,2))) {
+        if(pow(c,2) == (pow(a,2) + pow(b,2))) {
             printf(" pitagorica");
-            int minimum = min(a, b);
-            int middle = a > b ? a : b;
-            int resto = rest(minimum, c);
-            if(resto == 1 && rest(minimum, b) == 1) {
+            if(rest(a, rest(b, c)) == 1) {
                 printf(" primitiva");
             }
         }
