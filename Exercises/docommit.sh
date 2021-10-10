@@ -3,7 +3,7 @@
 TEMP_DIRECTORY="../../programming-club-cpy"
 COMMIT_MESSAGE="Add"
 MAX_FILES=5
-BRANCH="master"
+BRANCH=$(git branch | awk '{print $2}')
 
 #TODO: modified files, can do with md5
 
