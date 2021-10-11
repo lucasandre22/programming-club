@@ -2,34 +2,39 @@
 #include <iostream>
 using namespace std;
 
+typedef long long ll;
+#define MAX 1123456
+
 //https://www.urionlinejudge.com.br/judge/en/problems/view/1973
+int a[MAX], flags[MAX];
 
 int main(void) {
-    vector<int> array;
     int n;
-    int sum = 0;
+    ll sum = 0;
     scanf("%d", &n);
     for(int i = 0; i < n; i++) {
-        int a;
-        scanf("%d", &a);
-        sum += a;
-        array.push_back(a);
+        scanf("%d", &a[i]);
+        sum += a[i];
+        flags[i] = 1;
     }
-    int total = 0;
-    for(int i = 0; i < array.size() && i >= 0; i) {
-        int was = array[i];
-        if(array[i] != 0) {
-            array[i]--;
+    ll total = 0;
+    int i = 0;
+    ll sheep = 0;
+    while(i < n && i >= 0) {
+        if(a[i] > 0)
+            sheep++;
+        int was = a[i];
+        if(a[i] && flags[i]) {
+            a[i]--;
+            flags[i] = 0;
             total++;
         }
-        printf("%d was %d movin to ->", i, was);
         if(was % 2 == 0)
             i--;
         else
             i++;
-        printf("%d\n",i);
     }
-    printf("%d %d", total, sum-total);
+    printf("%lld %lld\n", total, sum-sheep);
 
     return 0;
 }
