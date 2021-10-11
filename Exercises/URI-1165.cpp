@@ -5,7 +5,7 @@ using namespace std;
 //
 
 int isPrime(int x, int d) {
-    if(d >= x) {
+    if(d >= x || d >= sqrt(x)) {
         return 1;
     } else if(x % d == 0) {
         return 0;
