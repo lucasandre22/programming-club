@@ -5,6 +5,11 @@ COMMIT_MESSAGE="Add"
 MAX_FILES=5
 BRANCH=$(git branch | awk '{print $2}')
 
+function update_hash() {
+	
+
+}
+
 #TODO: modified files, can do with md5
 
 if [ ! -d "${TEMP_DIRECTORY}" ] ; then
@@ -15,6 +20,11 @@ fi
 
 FILES_LIST=$(ls $PWD)
 TOTAL_ADDED_FILES=0
+
+#if [ $1 == "-m" ] ; then 
+	#find /dir1/ -type f -exec md5sum {} + | sort -k 2 > files.hash
+	
+#fi
 
 for file in $FILES_LIST
 do
