@@ -25,7 +25,7 @@ ll expo(ll n) {
 }
 
 ll binary_expo(ll a, ll n) {
-    if(n > 1) {
+    if(n > 0) {
         if(!(n & 1)) {
             ll b = binary_expo(a, n/2);
             return (b * b) % DIV;
@@ -42,7 +42,7 @@ ll binary_expo(ll a, ll n) {
 int main(void) {
     char word[1123];
     ll letter_frequency[26];
-    int total = 0;
+    int total;
     ll fact[1000];
     fact[0] = 1;
     for(int i = 1; i < 1000; i++) 
@@ -51,7 +51,7 @@ int main(void) {
     while(scanf(" %s", word) != EOF) {
         memset(letter_frequency, 0, sizeof(letter_frequency));
         total = strlen(word);
-        for(int i = 0; word[i] < total; i++) {
+        for(int i = 0; i < total; i++) {
             letter_frequency[(word[i]-65)]++; // ou (word[i]-'A')
             /*if(letter_frequency[(word[i]-65)] > 1) {
                 u++;
