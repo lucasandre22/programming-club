@@ -5,10 +5,6 @@ COMMIT_MESSAGE="Add"
 MAX_FILES=5
 BRANCH=$(git branch | awk '{print $2}')
 
-function update_hash() {
-	
-
-}
 
 #TODO: modified files, can do with md5
 
