@@ -11,6 +11,7 @@ se é modulo de 7
 */
 
 //https://www.urionlinejudge.com.br/judge/en/problems/view/1580
+//(Done with professor help)
 
 #define DIV 1000000007
 #define ll long long
