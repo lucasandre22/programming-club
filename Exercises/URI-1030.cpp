@@ -13,28 +13,30 @@ int main(void) {
     int p = cases;
     int ans;
     int current_pos;
+    int left;
     while(cases--) {
         scanf("%d %d", &n, &k);
-        for(i = 1; i <= n; i++) {
-            v[i] = 1;
-        }
+        memset(v, 1, (n+1)*sizeof(v[0]));
+        left = n-1;
         current_pos = k;
         v[current_pos] = 0;
         for(i = n-1; i > 1; i--) {
             int total = 0;
-            for(l = current_pos; total != k; l++) {
-                if(l > n) {
-                    l = 1;
-                }
-                if(v[l] == 1) {
+            int pos = current_pos;
+            int toWalk = (left % k);
+            while(total != toWalk) {
+                if(pos > n) pos = 1;
+                if(v[pos]) {
                     total++;
-                    if(total == k) {
+                    if(total != toWalk)
                         break;
-                    }
                 }
+                pos++;
             }
-            current_pos = l;
+            printf("c=%d\n", current_pos);
+            current_pos = pos;
             v[current_pos] = 0;
+            left--;
         }
         for(ans = 1; ans <= n; ans++) {
             if(v[ans]) {
