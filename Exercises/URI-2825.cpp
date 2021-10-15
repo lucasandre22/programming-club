@@ -6,10 +6,6 @@ using namespace std;
 vector<string> words;
 int words_array[52];
 int words_array2[52];
-/*if(i > 90) {
-    i += 7;
-    - 'A';
-}*/
 
 int main(void) {
     int nwords;
@@ -51,18 +47,25 @@ int main(void) {
         word_position_count.first = 0;
         word_position_count.second = -1123;
         int substitutions = 0;
-        int toDiminuir = 0;
         for(int j = 0; j < (int)words.size(); j++) {
             current_word = words[j];
             atual = 0;
-            for(int k = 0; k < (int)current_word.size(); k++) {
+            int maior_ = current_word.size() > word.size() ? current_word.size() : word.size();
+            for(int k = 0; k < maior_ && current_word.size() > 0/*((int)current_word.size() + substitutions)*/; k++) {
                 toCompare = current_word[k] > 'Z' ? (current_word[k]-71) : (current_word[k]-65);
                 if(words_array[toCompare] != words_array2[toCompare]) {
                     atual++;
                     words_array2[toCompare]++;
                 }
-                if(current_word[k] != word[k])
+
+                if(current_word.size() == word.size() && current_word[k] != word[k])
                     substitutions++;
+                else if(current_word.size() > word.size() && (current_word[k] != word[k-substitutions]))
+                    substitutions++;
+                else if(current_word.size() < word.size() && (current_word[k-substitutions] != word[k]))
+                    substitutions++;
+                //if((k-substitutions < word.size()-1) ||  (k-substitutions == current_word.size()-1))
+                    //break;
             }
 
             if((atual - substitutions - abs((int)current_word.size() - (int)word.size())) > word_position_count.second) {
