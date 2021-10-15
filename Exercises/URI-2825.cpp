@@ -48,7 +48,10 @@ int main(void) {
         string current_word;
         int atual = 0;
         pair<int, int> word_position_count;
-        word_position_count.second = 0;
+        word_position_count.first = 0;
+        word_position_count.second = -1123;
+        int substitutions = 0;
+        int toDiminuir = 0;
         for(int j = 0; j < (int)words.size(); j++) {
             current_word = words[j];
             atual = 0;
@@ -58,14 +61,22 @@ int main(void) {
                     atual++;
                     words_array2[toCompare]++;
                 }
+                if(current_word[k] != phrase[k - toDiminuir])
+                    substitutions++;
             }
-            if(atual > word_position_count.second) {
+
+            if((atual - substitutions) > word_position_count.second) {
                 word_position_count.first = j;
-                word_position_count.second = atual;
+                word_position_count.second = atual - substitutions;
             }
+            substitutions = 0;
             memset(words_array2, 0, 26*sizeof(words_array2[0]));
         }
         final_phrase += words[word_position_count.first] + ' ';
+        
+        toDiminuir += abs((int)words[word_position_count.first].size() - (int)word.size());
+
+        //toDiminuir += abs(words[word_position_count.first] - phrase.substr(b+1, phrase.find(' ')));
         if(i != nwords_to_fix-1)
             phrase = phrase.substr(b+1, phrase.size());
     }
