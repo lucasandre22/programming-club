@@ -15,11 +15,16 @@ int main(void) {
         cin >> word;
         word = word.substr(word.find(".") + 1, word.size());
         total += stoi(word) % 100;
-        if(total == 0) {
-            days++;
-        }
+        days += (total != 0);
     }
     printf("%d\n", days);
 
     return 0;
 }
+
+/**
+ * para ler $2.00 e pegar só o 00, posso fazer direto no scanf:
+ * scanf("$%d.%d", &n, &m), porém, tenho que ler o primeiro %d, mesmo que não for usar
+ * para dar scape de um '\n' no buffer no scanf
+ * scanf(" %d.%d");
+**/
