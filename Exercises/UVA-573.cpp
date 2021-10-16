@@ -19,7 +19,7 @@ int main(void) {
             if(tmp > EPS)
                 pos += tmp;
             pen += fa;
-            if(pos >  h + EPS) 
+            if(pos >  h + EPS)
                 flag = 1;
             else
             {

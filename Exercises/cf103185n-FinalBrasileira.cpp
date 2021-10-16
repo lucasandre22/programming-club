@@ -27,4 +27,21 @@ int main(void) {
  * scanf("$%d.%d", &n, &m), porém, tenho que ler o primeiro %d, mesmo que não for usar
  * para dar scape de um '\n' no buffer no scanf
  * scanf(" %d.%d");
+ * 
+ * 
+ * char a;
+ * int inteiro;
+ * cin >> a >> inteiro >> a >> inteiro;
+ * 
+ * 
+ * for(int i = 0; i < n; i++) {
+        //cin >> word;
+        char a;
+        int aux;
+        cin >> a >> aux >> a >> aux;
+        cout << aux << " ";
+        //word = word.substr(word.find(".") + 1, word.size());
+        total += aux % 100;
+        days += (total != 0);
+    }
 **/

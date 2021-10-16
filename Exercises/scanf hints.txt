@@ -1,0 +1,10 @@
+para ler $2.00 e pegar só o 00, posso fazer direto no scanf:
+scanf("$%d.%d", &n, &m), porém, tenho que ler o primeiro %d, mesmo que não for usar
+para dar scape de um '\n' no buffer no scanf
+scanf(" %d.%d");
+
+
+se quero que as saídas tenham exatamente um espaço entre elas
+for(int i = 0; i < saidas; i++)
+	printf("%s%d", i > 0 ? ' ' : "", n[i]);
+
