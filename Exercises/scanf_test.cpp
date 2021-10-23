@@ -38,7 +38,7 @@ int main(void) {
     cin >> variavelInutil;
     cin.ignore();
     getline(cin, numeros);
-    while(b != string::npos && b != numeros.size()) {
+    while(b != string::npos) {
         b = numeros.find(" ");
         numero_atual = stoi(numeros.substr(a, b));
         vetor.push_back(numero_atual);
